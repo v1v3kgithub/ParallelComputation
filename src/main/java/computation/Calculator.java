@@ -6,6 +6,11 @@ import java.util.List;
 /**
  * Created by vivek on 22/05/15.
  */
+
+/**
+ * Implement this class for calculations
+ * @param <T>
+ */
 public abstract class Calculator<T> {
     abstract public void taskToBePerformedOnPairOfObjects(PairOfObjects<T> pairOfObjects);
 

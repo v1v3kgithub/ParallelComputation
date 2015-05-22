@@ -14,6 +14,11 @@ public class SerialComputationEngine<T> extends AbstractComputationEngine<T> {
     }
 
     @Override
+    public String toString() {
+        return "SerialComputationEngine";
+    }
+
+    @Override
     public void compute(List<T> objects, double deltaT, int numberOfSteps) {
         List<PairOfObjects<T>> pairOfObjects = calculator.createCombinationOfObjects(objects);
         for (int i = 0; i < numberOfSteps; i++) {
