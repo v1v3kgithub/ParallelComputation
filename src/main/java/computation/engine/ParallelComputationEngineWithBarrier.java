@@ -4,6 +4,7 @@ import computation.Calculator;
 import computation.PairOfObjects;
 
 import java.util.List;
+import java.util.concurrent.BrokenBarrierException;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.CyclicBarrier;
 
@@ -75,8 +76,10 @@ public class ParallelComputationEngineWithBarrier<T> extends AbstractComputation
                             calculator.taskToBePerformedOnPairOfObjects(pairOfObject);
                         }
                         try {
-                            barrier.wait();
+                            barrier.await();
                         } catch (InterruptedException ex) {
+                            return;
+                        } catch (BrokenBarrierException e) {
                             return;
                         }
                     }
